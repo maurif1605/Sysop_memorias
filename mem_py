@@ -1,0 +1,74 @@
+import random
+memoria = [' '] * 100
+opcao = 0
+tamanho = 0
+letra = ' '
+for i in range(100):
+    if(random.randint(0,11) >= 5):
+        memoria[i] = 'x'
+    else:
+        memoria[i] = ' '
+for i in range(0,20):
+    print(memoria[i], end="|")
+print()
+for i in range(20,40):
+    print(memoria[i], end="|")
+print()
+for i in range(40,60):
+    print(memoria[i], end="|")
+print()
+for i in range(60,80):
+    print(memoria[i], end="|")
+print()
+for i in range(80,100):
+    print(memoria[i], end="|")
+print()
+while(opcao != 2):
+    #Menu do programa
+    print("1 - Melhor Escolha")
+    print("2 - Sair")
+    opcao = int(input("Escolha o algoritmo pelo numero"))
+    tamanho = int(input("Digite o tamanho da informação"))
+    letra = input("Digite a letra a ser utilizada")
+
+      
+    if (opcao == 1):
+        i = 0
+        conta_posicao = 0
+        marca_posicao = 0
+        menor_buraco = 200
+        while(i < 100):        
+            if memoria[i] == ' ':
+                for F in range(i + 1, 100):
+                    if memoria[F] != ' ':
+                        T = F - i
+                        print("Tamanho",T)
+                        print("inicio",i)
+                        print("fim",F)
+                        if T >= tamanho:
+                            if T <= menor_buraco:
+                                menor_buraco = T
+                                marca_posicao = i
+                                print("GRAVANDO")
+                        i = F + 1
+                        break
+            i += 1
+        for i in range(marca_posicao, marca_posicao + tamanho):
+            memoria[i] = letra
+
+
+    for i in range(0,20):
+        print(memoria[i], end="|")
+    print()
+    for i in range(20,40):
+        print(memoria[i], end="|")
+    print()
+    for i in range(40,60):
+        print(memoria[i], end="|")
+    print()
+    for i in range(60,80):
+        print(memoria[i], end="|")
+    print()
+    for i in range(80,100):
+        print(memoria[i], end="|")
+    print()
